@@ -34,7 +34,6 @@ class MediaItemAdapter(private val mediaItemList: List<MediaItem>) :
         holder.bind(item)
     }
 
-
     override fun getItemCount() = mediaItemList.size
 
 }
