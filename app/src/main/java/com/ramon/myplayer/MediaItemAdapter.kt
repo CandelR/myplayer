@@ -18,14 +18,15 @@ class MediaItemAdapter(private val mediaItemList: List<MediaItem>) :
 
         fun bind(mediaItem: MediaItem) {
             title.text = mediaItem.title
-            Glide.with(thumb).load(mediaItem.url).into(thumb)
+            thumb.loadUrl(mediaItem.url)
+            itemView.setOnClickListener {
+                toast(mediaItem.title)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaItemAdapter.MediaItemViewHolder {
-        val mediaItemView = LayoutInflater
-                .from(parent.context)
-                .inflate(R.layout.view_media_item, parent, false)
+        val mediaItemView = parent.inflate(R.layout.view_media_item)
         return MediaItemViewHolder(mediaItemView)
     }
 
